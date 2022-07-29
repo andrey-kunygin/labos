@@ -1,7 +1,8 @@
+import { FavoritesState } from './favorites/favorites.model';
 import {
   ActionReducerMap,
   MetaReducer,
-  createFeatureSelector
+  createFeatureSelector,
 } from '@ngrx/store';
 import { routerReducer, RouterReducerState } from '@ngrx/router-store';
 
@@ -14,15 +15,17 @@ import { authReducer } from './auth/auth.reducer';
 import { RouterStateUrl } from './router/router.state';
 import { settingsReducer } from './settings/settings.reducer';
 import { SettingsState } from './settings/settings.model';
+import { favoriteReducer } from './favorites/favorites.reducer';
 
 export const reducers: ActionReducerMap<AppState> = {
   auth: authReducer,
   settings: settingsReducer,
-  router: routerReducer
+  router: routerReducer,
+  favorites: favoriteReducer,
 };
 
 export const metaReducers: MetaReducer<AppState>[] = [
-  initStateFromLocalStorage
+  initStateFromLocalStorage,
 ];
 
 if (!environment.production) {
@@ -45,8 +48,14 @@ export const selectRouterState = createFeatureSelector<
   RouterReducerState<RouterStateUrl>
 >('router');
 
+export const favoritesSelectors = createFeatureSelector<
+  AppState,
+  FavoritesState
+>('favorites');
+
 export interface AppState {
   auth: AuthState;
   settings: SettingsState;
   router: RouterReducerState<RouterStateUrl>;
+  favorites: FavoritesState;
 }

@@ -1,0 +1,64 @@
+<div class="st-orders-list">
+  <table
+    *ngIf="dataSource?.length; else noData"
+    mat-table
+    [dataSource]="dataSource"
+    [trackBy]="trackByFn"
+  >
+    <ng-container matColumnDef="orderName">
+      <th *matHeaderCellDef mat-header-cell>
+        {{ 'stms.orders.order-name' | translate }}
+      </th>
+      <td *matCellDef="let row" mat-cell>
+        <span>{{ row?.orderName }}</span>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="orderNum">
+      <th *matHeaderCellDef mat-header-cell>
+        {{ 'stms.orders.order-num' | translate }}
+      </th>
+      <td *matCellDef="let row" mat-cell>
+        <span>{{ row?.orderNum }}</span>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="status">
+      <th *matHeaderCellDef mat-header-cell>
+        {{ 'stms.orders.order-status' | translate }}
+      </th>
+      <td *matCellDef="let row" mat-cell>
+        <span>{{ row?.status?.name }}</span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="isFavorite">
+      <th *matHeaderCellDef mat-header-cell>
+        {{ 'stms.orders.order-favorite' | translate }}
+      </th>
+      <td *matCellDef="let row" mat-cell>
+        <button
+          *ngIf="row.isFavorite"
+          color="accent"
+          mat-icon-button
+          [matTooltip]="'stms.orders.order-remove-from-favorite' | translate"
+          (click)="removeFromFavorite.next(row)"
+        >
+          <fa-icon icon="heart"></fa-icon>
+        </button>
+        <button
+          *ngIf="!row.isFavorite"
+          mat-icon-button
+          [matTooltip]="'stms.orders.order-add-to-favorite' | translate"
+          (click)="addToFavorite.next(row)"
+        >
+          <fa-icon icon="heart"></fa-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr *matHeaderRowDef="columns; sticky: true" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: columns" mat-row></tr>
+  </table>
+  <ng-template #noData>
+    <st-placeholder [error]="error"></st-placeholder>
+  </ng-template>
+</div>

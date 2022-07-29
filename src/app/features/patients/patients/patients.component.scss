@@ -1,0 +1,26 @@
+:host {
+  height: calc(100vh - 74px);
+  display: block;
+  overflow: auto;
+  .container {
+    height: 100%;
+    > div {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .content {
+      display: flex;
+      overflow: auto;
+      flex-grow: 1;
+      flex-direction: column;
+      margin-bottom: 10px;
+    }
+  }
+  .top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+  }
+}

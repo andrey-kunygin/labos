@@ -1,0 +1,65 @@
+<div class="st-patients-list">
+  <table
+    *ngIf="dataSource?.length; else noData"
+    mat-table
+    [dataSource]="dataSource"
+    [trackBy]="trackByFn"
+  >
+    <ng-container matColumnDef="firstName">
+      <th *matHeaderCellDef mat-header-cell>
+        {{ 'stms.patients.patient-first-name' | translate }}
+      </th>
+      <td *matCellDef="let row" mat-cell>
+        <span>{{ row?.firstName }}</span>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="lastName">
+      <th *matHeaderCellDef mat-header-cell>
+        {{ 'stms.patients.patient-last-name' | translate }}
+      </th>
+      <td *matCellDef="let row" mat-cell>
+        <span>{{ row?.lastName }}</span>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="age">
+      <th *matHeaderCellDef mat-header-cell>
+        {{ 'stms.patients.patient-age' | translate }}
+      </th>
+      <td *matCellDef="let row" mat-cell>
+        <span>{{ row?.birthDate?.formattedDate | age }}</span>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="isFavorite">
+      <th *matHeaderCellDef mat-header-cell>
+        {{ 'stms.patients.patient-favorite' | translate }}
+      </th>
+      <td *matCellDef="let row" mat-cell>
+        <button
+          *ngIf="row.isFavorite"
+          color="accent"
+          mat-icon-button
+          [matTooltip]="
+            'stms.patients.patient-remove-from-favorite' | translate
+          "
+          (click)="removeFromFavorite.next(row)"
+        >
+          <fa-icon icon="heart"></fa-icon>
+        </button>
+        <button
+          *ngIf="!row.isFavorite"
+          mat-icon-button
+          [matTooltip]="'stms.patients.patient-add-to-favorite' | translate"
+          (click)="addToFavorite.next(row)"
+        >
+          <fa-icon icon="heart"></fa-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr *matHeaderRowDef="columns; sticky: true" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: columns" mat-row></tr>
+  </table>
+  <ng-template #noData>
+    <st-placeholder [error]="error"></st-placeholder>
+  </ng-template>
+</div>

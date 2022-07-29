@@ -1,0 +1,60 @@
+:host {
+  height: calc(100vh - 74px);
+  display: block;
+  overflow: auto;
+  .container {
+    height: 100%;
+    > div {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .content {
+      display: flex;
+      overflow: auto;
+      flex-grow: 1;
+      flex-direction: column;
+      margin-bottom: 10px;
+    }
+  }
+  .top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+  }
+}
+:host::ng-deep {
+  .content {
+    .mat-tab-group {
+      flex: 1;
+      flex-grow: 1;
+      .mat-tab-body-wrapper {
+        flex-grow: 1;
+      }
+    }
+  }
+  .top-row {
+    .mat-form-field-wrapper {
+      margin: 0;
+      padding: 0;
+
+      .mat-form-field-flex {
+        margin-top: 0;
+      }
+
+      .mat-form-field-outline {
+        top: 0;
+      }
+
+      .mat-form-field-prefix {
+        top: 0.4em;
+      }
+
+      .mat-form-field-infix {
+        border: 0;
+        margin-left: 5px;
+      }
+    }
+  }
+}

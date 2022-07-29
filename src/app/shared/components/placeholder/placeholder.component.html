@@ -1,0 +1,8 @@
+<div class="st-placeholder">
+  <div class="error-info" *ngIf="error">
+    {{ 'stms.placeholder.something-went-wrong' | translate }}
+  </div>
+  <div class="error-info" *ngIf="!error">
+    {{ 'stms.placeholder.no-items' | translate }}
+  </div>
+</div>

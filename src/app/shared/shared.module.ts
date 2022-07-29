@@ -21,11 +21,12 @@ import { MatDividerModule } from "@angular/material/divider";
 import { MatSliderModule } from "@angular/material/slider";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from "@angular/material/core";
+import { MatTableModule } from '@angular/material/table';
 
 import {
   FontAwesomeModule,
-  FaIconLibrary
-} from "@fortawesome/angular-fontawesome";
+  FaIconLibrary,
+} from '@fortawesome/angular-fontawesome';
 import {
   faPlus,
   faEdit,
@@ -43,13 +44,20 @@ import {
   faLightbulb,
   faWindowMaximize,
   faStream,
-  faBook
-} from "@fortawesome/free-solid-svg-icons";
-import { faMediumM, faGithub } from "@fortawesome/free-brands-svg-icons";
+  faBook,
+} from '@fortawesome/free-solid-svg-icons';
+import { faMediumM, faGithub } from '@fortawesome/free-brands-svg-icons';
 
-import { BigInputComponent } from "./components/big-input/big-input/big-input.component";
-import { BigInputActionComponent } from "./components/big-input/big-input-action/big-input-action.component";
-import { RtlSupportDirective } from "./directives/rtl-support/rtl-support.directive";
+import { BigInputComponent } from './components/big-input/big-input/big-input.component';
+import { BigInputActionComponent } from './components/big-input/big-input-action/big-input-action.component';
+import { RtlSupportDirective } from './directives/rtl-support/rtl-support.directive';
+import { PatientsService } from './services/patients.service';
+import { PatientsListComponent } from './components/patients-list/patients-list.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { AgePipe } from './pipes/age.pipe';
+import { OrdersService } from './services/orders.service';
+import { OrdersListComponent } from './components/orders-list/orders-list.component';
+import { PlaceholderComponent } from './components/placeholder/placeholder.component';
 
 @NgModule({
   imports: [
@@ -73,13 +81,19 @@ import { RtlSupportDirective } from "./directives/rtl-support/rtl-support.direct
     MatSnackBarModule,
     MatSlideToggleModule,
     MatDividerModule,
+    MatTableModule,
 
-    FontAwesomeModule
+    FontAwesomeModule,
   ],
   declarations: [
     BigInputComponent,
     BigInputActionComponent,
-    RtlSupportDirective
+    RtlSupportDirective,
+    PatientsListComponent,
+    SpinnerComponent,
+    AgePipe,
+    OrdersListComponent,
+    PlaceholderComponent,
   ],
   exports: [
     CommonModule,
@@ -106,13 +120,21 @@ import { RtlSupportDirective } from "./directives/rtl-support/rtl-support.direct
     MatSliderModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatTableModule,
 
     FontAwesomeModule,
 
     BigInputComponent,
     BigInputActionComponent,
-    RtlSupportDirective
-  ]
+    RtlSupportDirective,
+    PatientsListComponent,
+    OrdersListComponent,
+    SpinnerComponent,
+    PlaceholderComponent,
+
+    AgePipe,
+  ],
+  providers: [PatientsService, OrdersService],
 })
 export class SharedModule {
   constructor(faIconLibrary: FaIconLibrary) {

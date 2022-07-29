@@ -1,7 +1,7 @@
 {
   "stms.title.long": "LabOS test task",
   "stms.title.short": "LabOS",
-  
+
   "stms.menu.patients": "נבדקים",
   "stms.menu.examples": "דוגמאות",
   "stms.menu.orders": "הזמנות",
@@ -30,5 +30,25 @@
   "stms.patients.get-patients": "מצא נבדקים",
 
   "stms.orders.title": "הזמנות",
-  "stms.orders.get-orders": "מצא הזמנות"
+  "stms.orders.get-orders": "מצא הזמנות",
+
+  "stms.favorites.title": "מועדפים",
+  "stms.favorites.search": "סנן ישויות",
+  "stms.favorites.patients": "חולים",
+  "stms.favorites.orders": "הזמנות",
+  "stms.orders.order-name": "שם ההזמנה",
+  "stms.orders.order-num": "מספר הזמנה",
+  "stms.orders.order-status": "מצב הזמנה",
+  "stms.orders.order-favorite": "אהוב",
+  "stms.patients.patient-first-name": "שם פרטי",
+  "stms.patients.patient-last-name": "שם משפחה",
+  "stms.patients.patient-age": "גיל",
+  "stms.patients.patient-favorite": "אהוב",
+  "stms.placeholder.something-went-wrong": "משהו השתבש. נסה שוב מאוחר יותר",
+  "stms.placeholder.no-items": "אין פריטים להצגה",
+  "stms.menu.favorites": "מועדפים",
+  "stms.patients.patient-remove-from-favorite": "הסר מהמועדף",
+  "stms.patients.patient-add-to-favorite": "הוסף למועדף",
+  "stms.orders.order-remove-from-favorite": "הסר מהמועדף",
+  "stms.orders.order-add-to-favorite": "הוסף למועדף"
 }
